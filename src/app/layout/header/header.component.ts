@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
+import { TableService } from 'src/app/content-page/table/services/table.service';
 
 @Component({
   selector: 'app-header',
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+  title: String = 'menu';
 
-  constructor() { }
+  constructor(private tableSvc: TableService) {}
 
   ngOnInit() {
+    this.tableSvc.currentTable.subscribe(newTitle => {
+      this.title = newTitle;
+      this.title = newTitle || 'Table';
+    });
   }
-
 }
