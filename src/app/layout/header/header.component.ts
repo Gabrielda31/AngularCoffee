@@ -7,7 +7,7 @@ import { TableService } from 'src/app/content-page/table/services/table.service'
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  title: String = 'menu';
+  title: String = 'MENU';
 
   constructor(private tableSvc: TableService) {}
 

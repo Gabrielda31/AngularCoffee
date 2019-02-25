@@ -8,16 +8,16 @@ import { StatusPipe } from './pipes/status.pipe';
 
 
 @NgModule({
+  imports: [
+    SharedModule,
+    TableRoutingModule
+  ],
+  exports: [],
   declarations: [
     TableComponent,
     ViewModeComponent,
-  ],
-  imports: [
-    SharedModule,
-    TableRoutingModule,
     StatusPipe
   ],
-  exports: [],
   providers: [TableService]
 })
 export class TableModule { }

@@ -1,3 +1,5 @@
-<p>
-  menu-bar works!
-</p>
+<div class="container">
+    <div class="menu-icons" *ngFor="let menuIcon of menuIcons" (click)="onTapMenuIcon(menuIcon)">
+        <img  src="{{menuIcon.active ? menuIcon.iconActive : menuIcon.icon}}">
+    </div>
+</div>
