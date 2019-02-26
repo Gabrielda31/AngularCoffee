@@ -6,6 +6,12 @@ const routes: Routes = [
   {
     path: '',
     component: LayoutComponent,
+    children: [
+      {
+        path: 'tables',
+        loadChildren: './content-page/table/table.module#TableModule'
+      }
+    ]
   }
 ];
 

@@ -1,3 +1,20 @@
-<p>
-  viewmode works!
-</p>
+<div class="container">
+  <div class="display-wrapper">
+    <div class="title">
+      Display
+    </div>
+    <div class="view-mode-button">
+      <div class="grid" (click)="onDisplayModeChange(0)" [ngClass]="{active: displayMode === 0}">
+        <img src="assets/grid.png" alt="">
+      </div>
+      <div class="list" (click)="onDisplayModeChange(1)" [ngClass]="{active: displayMode === 1}">
+        <img src="assets/list.png" alt="">
+      </div>
+    </div>
+  </div>
+  <div class="table-wrapper">
+    <div class="table-content" [ngClass]="{'grid-display': displayMode === 0}, 'list-display': displayMode === 1">
+      <app-table *ngFor="let table of tables" [table]="table"></app-table>
+    </div>
+  </div>
+</div>

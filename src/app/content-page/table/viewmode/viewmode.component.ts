@@ -20,9 +20,9 @@ export class ViewModeComponent implements OnInit {
     this.tableSvc.getTables();
     const viewMode = this.route.snapshot.queryParams.view;
     if (viewMode === 'list') {
-      this.displayMode = 1;
-    } else {
       this.displayMode = 0;
+    } else {
+      this.displayMode = 1;
     }
   }
   tapOnTable(table: ITable) {
