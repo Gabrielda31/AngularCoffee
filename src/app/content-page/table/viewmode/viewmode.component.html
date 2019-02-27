@@ -1,4 +1,4 @@
-<div class="container">
+<div class="display-container">
   <div class="display-wrapper">
     <div class="title">
       Display
@@ -12,9 +12,9 @@
       </div>
     </div>
   </div>
-  <div class="table-wrapper">
-    <div class="table-content" [ngClass]="{'grid-display': displayMode === 0}, 'list-display': displayMode === 1">
-      <app-table *ngFor="let table of tables" [table]="table"></app-table>
-    </div>
+</div>
+<div class="table-container">
+  <div class="table-wrapper" [ngClass]="{'grid-display': displayMode === 0, 'list-display': displayMode === 1}">
+    <app-table *ngFor="let table of tables" [table]="table"></app-table>
   </div>
 </div>

@@ -24,7 +24,7 @@ export class MenuBarComponent implements OnInit {
     });
     menu.active = true;
     if (menu.name === 'Menu') {
-      this.router.navigate(['/table']);
+      this.router.navigate(['/menu']);
     }
     if (menu.name === 'Order') {
       this.router.navigate(['/tables']);

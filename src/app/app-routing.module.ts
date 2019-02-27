@@ -10,6 +10,10 @@ const routes: Routes = [
       {
         path: 'tables',
         loadChildren: './content-page/table/table.module#TableModule'
+      },
+      {
+        path: 'menu',
+        loadChildren: './content-page/menu/menu.module#MenuModule'
       }
     ]
   }
