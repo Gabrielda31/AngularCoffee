@@ -4,6 +4,10 @@ import { LayoutComponent } from './layout/layout.component';
 
 const routes: Routes = [
   {
+    path: 'onboarding',
+    loadChildren: './content-page/onboarding/onboarding.module#OnboardingModule'
+  },
+  {
     path: '',
     component: LayoutComponent,
     children: [
