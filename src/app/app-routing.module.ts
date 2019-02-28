@@ -14,6 +14,10 @@ const routes: Routes = [
       {
         path: 'menu',
         loadChildren: './content-page/menu/menu.module#MenuModule'
+      },
+      {
+        path: 'profile',
+        loadChildren: './content-page/profile/profile.module#ProfileModule'
       }
     ]
   }

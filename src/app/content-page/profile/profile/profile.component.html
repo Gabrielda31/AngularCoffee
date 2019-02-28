@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="top">
+    <div class="background">
+      <div class="header">
+        <div class="profile-picture">
+          <img src="{{profile.picture}}">
+        </div>
+        <h4>{{profile.name}}</h4>
+        <p>{{profile.position}}</p>
+      </div>
+    </div>
+  </div>
+  <div class="bottom">
+    <div class="inside">
+      <div class="navigate">
+        <button class="button-info" routerLink="info" [ngClass]="{'active': selectedItem === 'info'}" (click)="selectedItem = 'info'">
+          Thông tin
+        </button>
+        <button class="button-schedule" routerLink="schedule" [ngClass]="{'active': selectedItem === 'schedule'}"
+          (click)="selectedItem = 'schedule'">
+          Ca làm việc
+        </button>
+      </div>
+      <div>
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+
+</div>
