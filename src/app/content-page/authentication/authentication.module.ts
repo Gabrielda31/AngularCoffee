@@ -12,6 +12,7 @@ import { AuthRoutingModule } from './authentication.routing';
     ReactiveFormsModule,
     AuthRoutingModule
   ],
+  exports: [],
   declarations: [
     LoginComponent,
   ],

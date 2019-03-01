@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LayoutComponent } from './layout/layout.component';
+import { PageNotFoundComponent } from './layout/page-not-found/page-not-found.component';
 
 const routes: Routes = [
   {
@@ -24,6 +25,14 @@ const routes: Routes = [
         loadChildren: './content-page/profile/profile.module#ProfileModule'
       }
     ]
+  },
+  {
+    path: 'order',
+    loadChildren: './order/order.module#OrderModule'
+  },
+  {
+    path: '**',
+    component: PageNotFoundComponent
   }
 ];
 
