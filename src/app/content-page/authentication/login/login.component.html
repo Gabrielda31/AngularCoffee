@@ -1,40 +1,42 @@
-<div class="login">
-  <div class="title">
-    <img src="../../assets/cup.png">
-    <h1 class="text-center">Welcome to CONO</h1>
-    <P>helping you to order coffee</P>
-  </div>
-  <form [formGroup]="loginForm" (ngSubmit)="login()">
-    <div class="form-group">
-      <h6>EMAIL</h6>
-      <input type="email" name="username" id="username" [formControl]="username">
-      <div class="invalid" [hidden]="username.valid || username.untouched">
-        <div [hidden]="!username.hasError ('email')">
-          Email is invalid
+<div class="container">
+  <div class="login">
+    <div class="title">
+      <img src="../../assets/cup.png">
+      <div class="welcome-to-cono">Welcome to CONO</div>
+      <div class="helping-you-to-order-coffee">helping you to order coffee</div>
+    </div>
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+      <div class="form-group">
+        <div class="email">EMAIL</div>
+        <input type="email" name="username" id="username" [formControl]="username">
+        <div class="invalid" [hidden]="username.valid || username.untouched">
+          <div [hidden]="!username.hasError ('email')">
+            Email is invalid
+          </div>
+          <div [hidden]="!username.hasError('required')">
+            Email is required
+          </div>
         </div>
-        <div [hidden]="!username.hasError('required')">
-          Email is required
-        </div>
-      </div>
 
-    </div>
-    <div class="form-group">
-      <h6 class="password">PASSWORD</h6>
-      <input type="password" name="password" id="password" [formControl]="password">
-      <div class="invalid" [hidden]="password.valid || password.untouched">
-        <div [hidden]="!password.hasError ('minlength')">
-          Password has more than 8 characters
-        </div>
-        <div [hidden]="!password.hasError ('maxlength')">
-          Password has less than 32 characters
-        </div>
-        <div [hidden]="!password.hasError('required')">
-          Password is required
+      </div>
+      <div class="form-group">
+        <div class="password">PASSWORD</div>
+        <input type="password" name="password" id="password" [formControl]="password">
+        <div class="invalid" [hidden]="password.valid || password.untouched">
+          <div [hidden]="!password.hasError ('minlength')">
+            Password has more than 8 characters
+          </div>
+          <div [hidden]="!password.hasError ('maxlength')">
+            Password has less than 32 characters
+          </div>
+          <div [hidden]="!password.hasError('required')">
+            Password is required
+          </div>
         </div>
       </div>
-    </div>
-    <div class="form-group text-center">
-      <button class="btn btn-primary" type="submit" [disabled]="loginForm.invalid">LOG IN</button>
-    </div>
-  </form>
+      <div class="form-group text-center">
+        <button class="btn btn-primary" type="submit" [disabled]="loginForm.invalid">LOG IN</button>
+      </div>
+    </form>
+  </div>
 </div>

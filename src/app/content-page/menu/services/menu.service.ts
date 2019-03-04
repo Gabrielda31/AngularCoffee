@@ -26,6 +26,7 @@ export class MenuService {
     const url = `https://lexuanquynh.com/foods?access_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjViZTU0ZjRiMzY3OWFjZmY2NTQ1ZmQ0OSIsImlhdCI6MTU0MTc1NTA5OH0.KvtTL9T6AMeSw6r33aqOOBo9yb0iKDE2-1qhVW4lLpo`;
     this.httpClient.get(url).pipe(map((response: any) => {
       const data = response.rows.map(x => {
+        // tslint:disable-next-line:prefer-const
         let food: IFood = {
           id: x.id,
           name: x.name,
@@ -41,23 +42,17 @@ export class MenuService {
         return food;
       });
       return data;
-    }))
-
-      .subscribe((data: any[]) => {
+    })).subscribe((data: any[]) => {
         this._foods.next(data);
       }, (error) => {
-        console.log(error)
+        console.log(error);
       }, () => {
         console.log('completed');
-
       });
   }
 
   setCurrentFood(name: String) {
     this._currentMenu.next(name);
   }
-  getFood(id: string) {
-
-  }
-
+  getFood(id: string) {}
 }

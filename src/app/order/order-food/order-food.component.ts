@@ -19,6 +19,7 @@ export class OrderFoodComponent implements OnDestroy {
       name: ''
     }]
   };
+  // tslint:disable-next-line:no-inferrable-types
   orderNumber: number = 0;
 
   constructor(private orderSerivce: OrderService) {

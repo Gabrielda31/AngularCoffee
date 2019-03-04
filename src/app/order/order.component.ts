@@ -17,6 +17,6 @@ export class OrderComponent implements OnInit {
     this.menuSvc.foods.subscribe((newData) => {
       this.foods = newData;
     });
-    this.menuSvc.getMenus();
+    this.menuSvc.getMenus()
   }
 }
