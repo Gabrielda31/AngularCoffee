@@ -1,9 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MenuService } from '../services/menu.service';
-import { IFood } from '../interfaces/ifood';
-import { Observable } from 'rxjs';
+import { IFood } from '../interfaces/IFood';
 import { ActivatedRoute } from '@angular/router';
-
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
@@ -11,16 +9,14 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class MenuComponent implements OnInit {
   foods: Array<IFood> = [];
-
   constructor(private menuSvc: MenuService, private route: ActivatedRoute) { }
-
   ngOnInit() {
     this.menuSvc.foods.subscribe((newData) => {
       this.foods = newData;
     });
     this.menuSvc.getMenus();
   }
-  tapOnFood (foods: IFood) {
+  tapOnFood(foods: IFood) {
     this.menuSvc.setCurrentFood(foods.name);
   }
 }
