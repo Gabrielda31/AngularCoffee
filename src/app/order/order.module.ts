@@ -5,8 +5,9 @@ import { OrderRoutingModule } from './order.routing';
 import { SharedModule } from '../shared/shared.module';
 import { OrderFoodComponent } from './order-food/order-food.component';
 import { MenuService } from '../content-page/menu/services/menu.service';
-import { OrderService } from './services/order.service';
+import { SummaryOrderComponent } from './summary-order/summary-order.component';
 import { FormsModule } from '@angular/forms';
+import { OrderService } from './services/order.service';
 
 @NgModule({
     imports: [
@@ -15,10 +16,12 @@ import { FormsModule } from '@angular/forms';
         OrderRoutingModule
     ],
     exports: [
+
     ],
     declarations: [
         OrderFoodComponent,
-        OrderComponent
+        OrderComponent,
+        SummaryOrderComponent
       ],
     providers: [MenuService, OrderService],
 })

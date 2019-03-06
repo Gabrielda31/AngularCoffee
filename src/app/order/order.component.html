@@ -1,14 +1,12 @@
 <div class="container">
   <div class="top">
     <div class="table">
-      <div class="table-id">Table 01</div>
+      <div class="table-name">{{table?.tableName}}</div>
       <div class="line"></div>
     </div>
     <div class="customer">
       <div class="customer-name">Customer's Name</div>
-      <div class="rectangle">
-        <div class="text">Mr.Dat</div>
-      </div>
+      <input type="text" placeholder="Your name" [(ngModel)]="customer" spellcheck="false">
     </div>
   </div>
   <div class="categories-buttons">
@@ -18,4 +16,5 @@
     <button> <img src="../assets/category-4.png">Special</button>
   </div>
   <app-order-food *ngFor="let food of foods" [food]="food"> </app-order-food>
+  <app-summary-order (onOrder)="order()"></app-summary-order>
 </div>

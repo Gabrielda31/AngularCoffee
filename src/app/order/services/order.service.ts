@@ -1,8 +1,12 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { IFood } from '../interfaces/IFood';
+import { IFood } from '../../content-page/menu/interfaces/IFood';
+import { HttpClient } from '@angular/common/http';
 
-@Injectable()
+
+@Injectable({
+    providedIn: 'root'
+})
 export class OrderService {
     private _totalAmount: BehaviorSubject<Number> = new BehaviorSubject(0);
     get totalAmount() {
@@ -13,30 +17,29 @@ export class OrderService {
     get orderFoods() {
         return this._orderFoods.asObservable();
     }
-    constructor() { }
+    constructor(private httpClient: HttpClient) { }
 
     addOrder(food: IFood, orderNumber: number) {
-        // tslint:disable-next-line:prefer-const
         let foods = this._orderFoods.getValue();
         // check existed food
         const index = foods.findIndex(o => o.id === food.id);
-        if (index > -1) {
+        if(index > -1) {
             foods[index].orderNumber = orderNumber;
         } else {
             food.orderNumber = orderNumber;
             foods.push(food);
         }
 
-        // calculate total amount
+        // Calculate total amount
         let total = 0;
         foods.forEach(f => {
             total = total + (f.price * f.orderNumber);
-        });
+        })
+        this._orderFoods.next(foods);
         this._totalAmount.next(total);
     }
 
     removeOrder(food: IFood, orderNumber: number) {
-        // tslint:disable-next-line:prefer-const
         let foods = this._orderFoods.getValue();
         // check existed food
         const index = foods.findIndex(o => o.id === food.id);
@@ -46,11 +49,26 @@ export class OrderService {
             foods.splice(index, 1);
         }
 
-        // calculate total amount
+        // Calculate total amount
         let total = 0;
         foods.forEach(f => {
             total = total + (f.price * f.orderNumber);
         });
+        this._orderFoods.next(foods);
         this._totalAmount.next(total);
+    }
+
+    createBill(tableId: String, customerName: String, orderFoods: IFood[]) {
+        return this.httpClient.post('bills', {
+            table: tableId,
+            customer: customerName,
+            status: 1,
+            details: orderFoods.map(f => {
+                return {
+                    id: f.id,
+                    quatity: f.orderNumber
+                };
+            })
+        });
     }
 }

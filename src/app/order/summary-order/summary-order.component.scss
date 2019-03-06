@@ -1,0 +1,110 @@
+:host {
+  display: flex;
+  width: 100vw;
+  height: 60px;
+  background-color: #422912;
+  position: fixed;
+  bottom: 0;
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    flex: 1;
+    position: relative;
+
+    .popup {
+      position: absolute;
+      bottom: 60px;
+      z-index: 100;
+      width: 100%;
+      height: 400px;
+      background-color: white;
+      border-radius: 5px;
+
+      .popup-title {
+        margin-bottom: none;
+        margin: 20px 0 20px 30px;
+        font-weight: bold;
+        color: #422912;
+      }
+
+      .note-wrapper {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        textarea {
+          width: 85%;
+          border-radius: 0.5rem;
+          border: gray 0.5px solid;
+          padding: 15px 10px 55px;
+        }
+      }
+
+      ul {
+        padding-left: none;
+        padding: 0 30px;
+        height: 200px;
+        overflow: scroll;
+
+        li {
+          list-style: none;
+
+          .item-wrapper {
+            display: flex;
+            justify-content: space-between;
+
+            .name {
+              float: left;
+              padding-right: 3.5rem;
+              color: #422912;
+              font-size: 13px;
+              margin-bottom: 20px;
+            }
+
+            .price {
+              float: right;
+              color: #422912;
+              font-size: 13px;
+            }
+          }
+        }
+      }
+    }
+
+    .background {
+      background-color: rgba(0, 0, 0, 0.459);
+      position: absolute;
+      height: 1000px;
+      z-index: 99;
+      width: 100%;
+      bottom: 60px;
+    }
+
+    .left {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      color: white;
+      flex: 1;
+
+      .arrow-up {
+        width: 10%;
+      }
+
+      .total {
+        width: 45%;
+        height: 60%;
+        display: flex;
+        align-items: flex-end;
+      }
+    }
+
+    button {
+      border: none;
+      background-color: #C8B496;
+      color: white;
+    }
+  }
+}

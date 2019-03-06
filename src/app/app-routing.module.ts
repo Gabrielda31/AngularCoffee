@@ -36,7 +36,7 @@ const routes: Routes = [
   },
   {
     path: 'order',
-    loadChildren: './order/order.module/#OrderModule'
+    loadChildren: './order/order.module#OrderModule'
   },
   {
     path: '**',

@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="left">
+    <img src="assets/order.png" alt="">
+    <div class="total">
+      <span> {{ totalAmount | number: '.0'}} VND </span>
+    </div>
+    <img class="arrow-up" (click)="showPopup = !showPopup" src="assets/arrow-up.png" alt="">
+  </div>
+  <button (click)="order()">
+    Order Now
+  </button>
+  <div class="popup" *ngIf="showPopup">
+    <div class="popup-title">Your Order</div>
+    <ul>
+      <li *ngFor="let item of orderFoods">
+        <div class="item-wrapper">
+          <div class="name">{{item.name}}</div>
+          <div class="price">{{item.orderNumber}} x {{item.price | number: '.0'}} VND </div>
+        </div>
+      </li>
+    </ul>
+    <div class="note-wrapper">
+      <textarea placeholder="Note Something" spellcheck="false"></textarea>
+    </div>
+  </div>
+  <div class="background" *ngIf="showPopup"></div>
+</div>

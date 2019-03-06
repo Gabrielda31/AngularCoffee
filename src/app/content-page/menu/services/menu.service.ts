@@ -23,7 +23,7 @@ export class MenuService {
 
   getMenus() {
     // tslint:disable-next-line:max-line-length
-    const url = `https://lexuanquynh.com/foods?access_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjViZTU0ZjRiMzY3OWFjZmY2NTQ1ZmQ0OSIsImlhdCI6MTU0MTc1NTA5OH0.KvtTL9T6AMeSw6r33aqOOBo9yb0iKDE2-1qhVW4lLpo`;
+    const url = `foods`;
     this.httpClient.get(url).pipe(map((response: any) => {
       const data = response.rows.map(x => {
         // tslint:disable-next-line:prefer-const

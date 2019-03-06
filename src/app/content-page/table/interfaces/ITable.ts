@@ -1,6 +1,7 @@
 export interface ITable {
+  id: String;
   tableName: String;
-  tableStatus: Number;
+  tableStatus: number;
   customerName?: String;
-  totalOrder?: Number;
+  totalOrder?: number;
 }

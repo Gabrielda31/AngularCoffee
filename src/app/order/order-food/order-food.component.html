@@ -2,7 +2,7 @@
   <img src="{{food.cover}}">
   <div class="caption">
     <h2>{{food.name}}</h2>
-    <h5>{{food.price}} vnd</h5>
+    <h5>{{food.price | number: '.0'}} VND</h5>
     <div class="ins-dec-btns">
       <button (click)="removeOrder(food)">-</button>
       <input type="text" [(ngModel)]="orderNumber" readonly>

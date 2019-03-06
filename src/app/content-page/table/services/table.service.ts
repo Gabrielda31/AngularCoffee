@@ -3,9 +3,9 @@ import { ITable } from '../interfaces/ITable';
 import { HttpClient } from '@angular/common/http';
 import { Observable, Observer, BehaviorSubject, pipe } from 'rxjs';
 import { map } from 'rxjs/operators';
-
+import { environment } from 'src/environments/environment.prod';
 @Injectable(
-  {providedIn: 'root'}
+  { providedIn: 'root' }
 )
 export class TableService {
   private _tables: BehaviorSubject<ITable[]> = new BehaviorSubject([]);
@@ -13,25 +13,30 @@ export class TableService {
 
   get currentTable() {
     return this._currentTable.asObservable();
-  }
 
+  }
   get tables() {
     return this._tables.asObservable();
   }
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {
+  }
+
+  addTable() {
+  }
 
   getTables() {
-    // tslint:disable-next-line:max-line-length
-    const url = `http://lexuanquynh.com:8080/tables?access_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjViZTU0ZmEwMzY3OWFjZmY2NTQ1ZmQ0YSIsImlhdCI6MTU0MTc1NDc4NH0.kpj_nqM8aiT7OpjTmheRfYE8IRY0z4xSE-CP7GGWbHM`;
+    const url = `tables`;
     this.httpClient.get(url).pipe(
-      map((res: any) => {
-        const data = res.map(x => {
+      map((response: any) => {
+        const data = response.map(x => {
+          // tslint:disable-next-line:prefer-const
           let table: ITable = {
+            id: x.id,
             tableName: x.name,
-            customerName: x.bill ? x.bill.customer : undefined,
-            tableStatus: x.bill ? x.bill.status : 0,
-            totalOrder: x.bill ? x.bill.details.length : undefined
+            customerName: x.customerName,
+            tableStatus: x.status,
+            totalOrder: x.numberOrder
           };
           return table;
         });
@@ -39,13 +44,28 @@ export class TableService {
       }))
       .subscribe((data: any[]) => {
         this._tables.next(data);
+
       }, (error) => {
         console.log(error);
       }, () => {
         console.log('completed');
-      });
+      }
+      );
   }
   setCurrentTable(tableName: String) {
     this._currentTable.next(tableName);
+  }
+  getTable(id: String) {
+    return this.httpClient.get('tables/' + id).pipe(
+      map((res: any) => {
+        let table: ITable = {
+          id: res.id,
+          tableName: res.name,
+          customerName: res.customerName,
+          tableStatus: res.status,
+          totalOrder: res.numberOrder
+        };
+        return table;
+      }));
   }
 }
