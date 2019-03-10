@@ -20,10 +20,11 @@ export class OrderService {
     constructor(private httpClient: HttpClient) { }
 
     addOrder(food: IFood, orderNumber: number) {
+        // tslint:disable-next-line:prefer-const
         let foods = this._orderFoods.getValue();
         // check existed food
         const index = foods.findIndex(o => o.id === food.id);
-        if(index > -1) {
+        if (index > -1) {
             foods[index].orderNumber = orderNumber;
         } else {
             food.orderNumber = orderNumber;
@@ -34,12 +35,13 @@ export class OrderService {
         let total = 0;
         foods.forEach(f => {
             total = total + (f.price * f.orderNumber);
-        })
+        });
         this._orderFoods.next(foods);
         this._totalAmount.next(total);
     }
 
     removeOrder(food: IFood, orderNumber: number) {
+        // tslint:disable-next-line:prefer-const
         let foods = this._orderFoods.getValue();
         // check existed food
         const index = foods.findIndex(o => o.id === food.id);

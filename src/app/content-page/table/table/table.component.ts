@@ -12,7 +12,7 @@ export class TableComponent implements OnDestroy, OnInit {
         id: '',
         tableName: 'Table',
         tableStatus: 0
-    }
+    };
     constructor(private router: Router) {}
 ngOnInit() {}
     order(id) {
