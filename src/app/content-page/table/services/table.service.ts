@@ -36,7 +36,8 @@ export class TableService {
             tableName: x.name,
             customerName: x.customerName,
             tableStatus: x.status,
-            totalOrder: x.numberOrder
+            totalOrder: x.numberOrder,
+            billId: x.billId
           };
           return table;
         });
@@ -58,6 +59,7 @@ export class TableService {
   getTable(id: String) {
     return this.httpClient.get('tables/' + id).pipe(
       map((res: any) => {
+        // tslint:disable-next-line:prefer-const
         let table: ITable = {
           id: res.id,
           tableName: res.name,

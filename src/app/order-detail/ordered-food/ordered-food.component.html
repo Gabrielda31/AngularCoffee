@@ -1,3 +1,20 @@
-<p>
-  ordered-food works!
-</p>
+<div class="container">
+  <div class="ordered-food-wrapper">
+    <div class="ordered-food-infomation">
+      <div class="ordered-food-img">
+        <img src="{{food.cover}}" alt="">
+      </div>
+      <div class="ordered-food-detail">
+        <div class="ordered-food-name">
+          {{food.name}}
+        </div>
+        <div class="ordered-food-price">
+          {{food.price}}
+        </div>
+        <div class="ordered-food-quantity">
+          <input type="text" value="food.orderNumber" readonly>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

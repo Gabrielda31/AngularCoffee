@@ -1,4 +1,4 @@
-import { Component, OnDestroy, Input, OnInit } from '@angular/core'
+import { Component, OnDestroy, Input, OnInit } from '@angular/core';
 import { ITable } from '../interfaces/ITable';
 import { Router } from '@angular/router';
 
@@ -17,6 +17,9 @@ export class TableComponent implements OnDestroy, OnInit {
 ngOnInit() {}
     order(id) {
         this.router.navigate(['order', id]);
+    }
+    orderStatus(id) {
+      this.router.navigate(['order-detail', id]);
     }
     ngOnDestroy() {
         console.log('Component Table have been destroyed');

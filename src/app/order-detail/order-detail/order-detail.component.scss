@@ -1,31 +1,124 @@
+$px-8: 0 8px;
+$rounded-button: 25px;
 .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    height: 50px;
-    background-color: #422912;
-    color: white;
-    font-weight: 600;
-    letter-spacing: 2px;
-    padding: 0 17px;
+	height: 100%;
 
-    .back-arrow {
-        display: flex;
-        align-items: center;
+	.order-detail-wrapper {
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+		position: fixed;
+		top: 0;
+		width: 100%;
+		height: 50px;
+		background-color: #422912;
+		color: white;
+		font-weight: 600;
 
-        img {
-            width: 50%;
-        }
-    }
+		.back-arrow {
+			display: flex;
+			align-items: center;
+			width: 7%;
 
-    .table-number {
-        font-size: 17px;
-    }
+			img {
+				width: 100%;
+			}
+		}
 
-    .edit {
-        font-size: 12px;
-    }
+		.table-number {
+			font-size: 17px;
+			letter-spacing: 2px;
+
+		}
+
+		.edit {
+			font-size: 12px;
+		}
+	}
+
+	.order-detail-status-wrapper {
+		display: flex;
+		align-items: center;
+		width: 100%;
+		height: 60px;
+		background: #fff;
+		position: fixed;
+		top: 50px;
+
+		.order-detail-status {
+			display: flex;
+			justify-content: space-around;
+			width: 100%;
+			padding: $px-8;
+
+			.orders {
+				display: flex;
+				align-items: center;
+				width: 50%;
+				font-size: 20px;
+				color: #422912;
+			}
+
+			.status {
+				padding: 13px 0;
+				text-align: center;
+				width: 50%;
+				background: #F1FF2E;
+				font-size: 14px;
+				color: #422912;
+			}
+		}
+	}
+
+	.fixed-container {
+		width: 100%;
+		position: fixed;
+		bottom: 20px;
+		background: #fff;
+
+		.order-detail-description-wrapper {
+			margin-top: 20px;
+			height: 110px;
+			width: 100%;
+
+			.order-detail-description-border {
+				border: 1px solid #D1D1D1;
+				height: 100%;
+				margin: 0 8px;
+				font-size: 13px;
+				color: #575656;
+			}
+		}
+
+		.buttons-wrapper {
+			margin-top: 25px;
+			height: 120px;
+
+			.buttons {
+				height: 100%;
+				padding: $px-8;
+
+				.more-order-button {
+					text-align: center;
+					font-size: 14px;
+					padding: 15px 85px;
+					background: #C8B496;
+					border-radius: $rounded-button;
+					color: #fff;
+					margin: 0 35px;
+				}
+
+				.done-button {
+					margin-top: 20px;
+					text-align: center;
+					font-size: 14px;
+					padding: 15px 115px;
+					background: #422912;
+					border-radius: $rounded-button;
+					color: #fff;
+					margin: 20px 35px 0 35px;
+				}
+			}
+		}
+	}
 }

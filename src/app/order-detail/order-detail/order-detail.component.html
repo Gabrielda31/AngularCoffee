@@ -1,11 +1,42 @@
 <div class="container">
+  <div class="order-detail-wrapper">
     <div class="back-arrow">
-        <img src="assets/left-arrow.png" alt="">
+      <img src="assets/left-arrow.png" alt="">
     </div>
     <div class="table-number">
-        {{tableNumber | uppercase}}
+      {{tableNumber | uppercase}}
     </div>
-    <div class="edit">
-        Edit
+    <div class="edit" (click)='editOrder(table.id)'>
+      Edit
     </div>
+  </div>
+  <div class="order-detail-status-wrapper">
+    <div class="order-detail-status">
+      <div class="orders">
+        Orders
+      </div>
+      <div class="status">
+        Serve
+      </div>
+    </div>
+  </div>
+  <app-ordered-food></app-ordered-food>
+  <div class="fixed-container">
+    <div class="order-detail-description-wrapper">
+      <div class="order-detail-description-border">
+        It is a long established fact that a reader will be distracted by the
+        readable content of a page when looking at its layout.
+      </div>
+    </div>
+    <div class="buttons-wrapper">
+      <div class="buttons">
+        <div class="more-order-button" (click)='goTables()'>
+          MORE ORDER
+        </div>
+        <div class="done-button">
+          DONE
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

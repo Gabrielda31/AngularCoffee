@@ -4,4 +4,5 @@ export interface ITable {
   tableStatus: number;
   customerName?: String;
   totalOrder?: number;
+  billId?: String;
 }
