@@ -1,6 +1,6 @@
 <div class="container">
   <div class="order-detail-wrapper">
-    <div class="back-arrow">
+    <div class="back-arrow" (click)='goBack()'>
       <img src="assets/left-arrow.png" alt="">
     </div>
     <div class="table-number">
@@ -20,7 +20,7 @@
       </div>
     </div>
   </div>
-  <app-ordered-food></app-ordered-food>
+  <app-ordered-food *ngFor="let food of orderFoods" [food]="food"></app-ordered-food>
   <div class="fixed-container">
     <div class="order-detail-description-wrapper">
       <div class="order-detail-description-border">
@@ -33,7 +33,7 @@
         <div class="more-order-button" (click)='goTables()'>
           MORE ORDER
         </div>
-        <div class="done-button">
+        <div class="done-button" (click)="done()">
           DONE
         </div>
       </div>
