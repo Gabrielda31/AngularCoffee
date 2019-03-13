@@ -65,7 +65,8 @@ export class TableService {
           tableName: res.name,
           customerName: res.customerName,
           tableStatus: res.status,
-          totalOrder: res.numberOrder
+          totalOrder: res.numberOrder,
+          billId: res.billId
         };
         return table;
       }));

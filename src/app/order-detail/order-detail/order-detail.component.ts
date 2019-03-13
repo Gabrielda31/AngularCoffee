@@ -18,7 +18,8 @@ export class OrderDetailComponent implements OnInit {
   orderFoods: Array<IFood> = [];
   table: ITable;
 
-  constructor(private orderService: OrderService,
+  constructor(
+    private orderService: OrderService,
     private location: Location,
     private billService: BillService,
     private router: Router,

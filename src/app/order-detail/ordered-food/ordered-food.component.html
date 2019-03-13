@@ -9,10 +9,12 @@
           {{food.name}}
         </div>
         <div class="ordered-food-price">
-          {{food.price}}
+          {{food.price| number: '.0'}}
         </div>
         <div class="ordered-food-quantity">
-          <input type="text" value="food.orderNumber" readonly>
+          <div class="quantity">
+            {{food.orderNumber}}
+          </div>
         </div>
       </div>
     </div>

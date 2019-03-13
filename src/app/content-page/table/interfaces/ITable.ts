@@ -3,6 +3,6 @@ export interface ITable {
   tableName: String;
   tableStatus: number;
   customerName?: String;
-  totalOrder?: number;
+  totalOrder?: Number;
   billId?: String;
 }

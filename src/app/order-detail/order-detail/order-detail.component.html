@@ -20,7 +20,9 @@
       </div>
     </div>
   </div>
-  <app-ordered-food *ngFor="let food of orderFoods" [food]="food"></app-ordered-food>
+  <div class="ordered-food-content">
+    <app-ordered-food *ngFor="let food of orderFoods" [food]="food"></app-ordered-food>
+  </div>
   <div class="fixed-container">
     <div class="order-detail-description-wrapper">
       <div class="order-detail-description-border">

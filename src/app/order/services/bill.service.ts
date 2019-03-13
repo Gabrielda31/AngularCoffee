@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { ITable } from '../../content-page/table/interfaces/ITable';
-import { IFood } from '../../content-page/menu/interfaces/IFood';
+import { IFood } from '../interfaces/IFood';
 @Injectable({ providedIn: 'root' })
 export class BillService {
   constructor(private httpClient: HttpClient) { }
