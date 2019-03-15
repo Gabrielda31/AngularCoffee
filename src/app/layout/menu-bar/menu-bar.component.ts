@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 export class MenuBarComponent implements OnInit {
   menuIcons: IMenu[] = [
     {name: 'Menu', icon: 'assets/coffee.png', iconActive: 'assets/coffee-color.png', active: false},
-    {name: 'Order', icon: 'assets/order.png', iconActive: 'assets/order-color.png', active: false},
+    {name: 'Order', icon: 'assets/order.png', iconActive: 'assets/order-color.png', active: true},
     {name: 'User', icon: 'assets/user.png', iconActive: 'assets/user-color.png', active: false}
   ];
   constructor(private router: Router) {}

@@ -43,16 +43,16 @@ export class MenuService {
       });
       return data;
     })).subscribe((data: any[]) => {
-        this._foods.next(data);
-      }, (error) => {
-        console.log(error);
-      }, () => {
-        console.log('completed');
-      });
+      this._foods.next(data);
+    }, (error) => {
+      console.log(error);
+    }, () => {
+      console.log('completed');
+    });
   }
 
   setCurrentFood(name: String) {
     this._currentMenu.next(name);
   }
-  getFood(id: string) {}
+  getFood(id: string) { }
 }
