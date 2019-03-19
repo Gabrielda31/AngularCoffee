@@ -28,13 +28,13 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    console.log(this.username);
-    console.log(this.password);
+    // console.log(this.username);
+    // console.log(this.password);
     if (this.loginForm.valid) {
       console.log('Form is valid');
       this.authSvc.login(this.loginForm.value.username, this.loginForm.value.password).subscribe(res => {
-        console.log(res);
-        this.router.navigate(['/tables'])
+        console.log(res.user.id);
+        this.router.navigate(['/tables']);
       }, (err) => {
         alert('Sai email hoac password');
       });

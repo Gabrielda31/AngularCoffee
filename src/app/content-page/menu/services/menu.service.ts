@@ -24,8 +24,8 @@ export class MenuService {
   getMenus() {
     // tslint:disable-next-line:max-line-length
     const url = `foods`;
-    this.httpClient.get(url).pipe(map((response: any) => {
-      const data = response.rows.map(x => {
+    this.httpClient.get(url).pipe(map((res: any) => {
+      const data = res.rows.map(x => {
         // tslint:disable-next-line:prefer-const
         let food: IFood = {
           id: x.id,
@@ -54,5 +54,6 @@ export class MenuService {
   setCurrentFood(name: String) {
     this._currentMenu.next(name);
   }
+
   getFood(id: string) { }
 }
